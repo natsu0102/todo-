@@ -20,6 +20,8 @@ class CategorySeeder extends Seeder
     {
             DB::table('categories')->insert([
                 'name' => '大学',
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime(),
          ]);
     }
 }
