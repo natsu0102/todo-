@@ -11,6 +11,7 @@ $count = 0
     </head>
     <body>
         <h1 class='text-4xl'>タスク一覧</h1>
+        <a href='/todo/addition'>追加</a>
         <div class='tasks'>
             @foreach ($tasks as $task)
                 <div class='task'>
@@ -20,6 +21,5 @@ $count = 0
                 </div>
             @endforeach
         </div>
-    <!--<a href='/posts/create'>create</a> -->
     </body>
 </html>
