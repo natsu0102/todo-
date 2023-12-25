@@ -15,7 +15,9 @@ $count = 0
         <div class='tasks'>
             @foreach ($tasks as $task)
                 <div class='task'>
-                    <span class='name'>{{$task->name}}</span>
+                    <span class='name'>
+                        <a href="/todo/{{ $task->id }}">{{ $task->name }}</a>
+                    </span>
                     <span class='target_time'>{{$task->target_time}}</span>
                     <span class='importance_urgency'>{{$task->importance_urgency}}</span>
                 </div>
