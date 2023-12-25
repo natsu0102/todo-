@@ -25,4 +25,13 @@ class TaskController extends Controller
         $task->fill($input)->save();
         return redirect('/');
     }
+    public function show(Task $task)
+    {
+        return view('todo.show')->with(['task' => $task]);
+     //'task'はbladeファイルで使う変数。中身は$taskはid=1のTaskインスタンス。
+    }
+    public function edit(Task $task)
+    {
+        return view('todo.edit')->with(['task' => $task]);
+    }
 }
