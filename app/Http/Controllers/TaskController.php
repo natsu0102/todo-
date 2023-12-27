@@ -34,4 +34,9 @@ class TaskController extends Controller
     {
         return view('todo.edit')->with(['task' => $task, 'categories' => $category->get()]);
     }
+        public function delete(Task $task)
+    {
+        $task->delete();
+        return redirect('/');
+    }
 }

@@ -34,6 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/todo/{task}', [TaskController::class ,'show']);
     Route::get('/todo/{task}/edit', [TaskController::class, 'edit']);//編集画面の表示
     Route::put('/todo/{task}', [TaskController::class, 'update']);//編集実行
+    Route::delete('/todo/{task}', [TaskController::class,'delete']);//削除
 });
 
 

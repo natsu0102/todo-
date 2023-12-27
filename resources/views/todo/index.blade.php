@@ -22,7 +22,21 @@ $count = 0
                     <span class='target_time'>{{$task->target_time}}</span>
                     <span class='importance_urgency'>{{$task->importance_urgency}}</span>
                 </div>
+                <form action="/todo/{{ $task->id }}" id="form_{{ $task->id }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="button" onclick="deletePost({{ $task->id }})">削除</button> 
+                </form>
             @endforeach
         </div>
+            <script>
+                function deletePost(id) {
+                    'use strict'
+            
+                    if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+                        document.getElementById(`form_${id}`).submit();
+                    }
+                }
+            </script>
     </body>
 </html>
