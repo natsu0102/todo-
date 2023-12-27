@@ -15,6 +15,7 @@ $count = 0
         <div class='tasks'>
             @foreach ($tasks as $task)
                 <div class='task'>
+                    <input type="checkbox"/>
                     <span class='name'>
                         <a href="/todo/{{ $task->id }}">{{ $task->name }}</a>
                     </span>

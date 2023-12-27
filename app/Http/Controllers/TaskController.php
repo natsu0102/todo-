@@ -30,8 +30,8 @@ class TaskController extends Controller
         return view('todo.show')->with(['task' => $task]);
      //'task'はbladeファイルで使う変数。中身は$taskはid=1のTaskインスタンス。
     }
-    public function edit(Task $task)
+    public function edit(Task $task, Category $category)
     {
-        return view('todo.edit')->with(['task' => $task]);
+        return view('todo.edit')->with(['task' => $task, 'categories' => $category->get()]);
     }
 }
