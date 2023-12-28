@@ -12,23 +12,28 @@ $count = 0
     <body>
         <h1 class='text-4xl'>タスク一覧</h1>
         <a href='/todo/addition'>追加</a>
-        <div class='tasks'>
-            @foreach ($tasks as $task)
-                <div class='task'>
-                    <input type="checkbox"/>
-                    <span class='name'>
-                        <a href="/todo/{{ $task->id }}">{{ $task->name }}</a>
-                    </span>
-                    <span class='target_time'>{{$task->target_time}}</span>
-                    <span class='importance_urgency'>{{$task->importance_urgency}}</span>
-                </div>
-                <form action="/todo/{{ $task->id }}" id="form_{{ $task->id }}" method="post">
-                    @csrf
-                    @method('DELETE')
-                    <button type="button" onclick="deletePost({{ $task->id }})">削除</button> 
-                </form>
-            @endforeach
-        </div>
+        <a href='/todo/diary'>create</a>
+        <form action="/diary" method="POST">
+            @csrf
+            <div class='tasks'>
+                @foreach ($tasks as $task)
+                    <div class='task'>
+                        <input type="checkbox"  value="{{ $task->id }}">
+                        <span class='name'>
+                            <a href="/todo/{{ $task->id }}">{{ $task->name }}</a>
+                        </span>
+                        <span class='target_time'>{{$task->target_time}}</span>
+                        <span class='importance_urgency'>{{$task->importance_urgency}}</span>
+                    </div>
+                    <form action="/todo/{{ $task->id }}" id="form_{{ $task->id }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="button" onclick="deletePost({{ $task->id }})">削除</button> 
+                    </form>
+                @endforeach
+            </div>
+            <input type="submit" value="今日のタスク"/>
+        </form>
             <script>
                 function deletePost(id) {
                     'use strict'
