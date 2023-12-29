@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('diaries', function (Blueprint $table) {
             $table->id();
             $table->date('date');
-            $table->foreignId('task_id');
             $table->integer('evaluation');
             $table->string('good_thing',300);
             $table->string('improvement',300);

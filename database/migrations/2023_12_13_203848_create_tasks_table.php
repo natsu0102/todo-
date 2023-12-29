@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->id(); 
             $table->foreignId('user_id');
-            $table->foreignId('category_id');
+            $table->foreignId('category_id')->nullable();
+            $table->foreignId('diary_id')->nullable();
             $table->string('name',30);
             $table->integer('importance_urgency');
             $table->time('target_time');

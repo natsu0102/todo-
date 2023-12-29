@@ -11,18 +11,12 @@ use Illuminate\Support\Facades\Auth;
 
 class DiaryController extends Controller
 {
-    public function create(Task $task, Diary $diary)
+    public function update(Request $request, Task $task)
     {
-        return view('todo.diary')->with(['tasks' => $task, 'diaries' => $diary]);;
-    }
-    public function store(Request $request,Task $task, Diary $diary)
-    {
-        $input = $request['diary'];
-        $diary->fill($input)->save();
-        return redirect('/todo/' . $diary->id)->with(['tasks' => $task, 'diaries' => $diary]);;
-    }
-    public function show(Task $task, Diary $diary)
-    {
-        return view('todo.diary')->with(['tasks' => $task, 'diaries' => $diary]);
+        $task->update([
+            'diary_id' => $request->has('completed') ? auth()->user()->currentDiary->id : null,
+        ]);
+    
+        return redirect()->back();
     }
 }
