@@ -10,7 +10,6 @@ class Diary extends Model
     use HasFactory;
     protected $fillable = [
         'date',
-        'task_id',
         'evaluation',
         'good_thing',
         'improvement',
