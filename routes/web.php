@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\DiaryController;
 
 
 /*
@@ -36,7 +37,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/todo/{task}/edit', [TaskController::class, 'edit']);//編集画面の表示
     Route::put('/todo/{task}', [TaskController::class, 'update']);//編集実行
     Route::delete('/todo/{task}', [TaskController::class,'delete']);//削除
-    Route::put('/today/{diary}', [DiaryController::class, 'update']);//編集実行
+    Route::post('/today/', [DiaryController::class, 'store']);//今日の分のタスク
 });
 
 

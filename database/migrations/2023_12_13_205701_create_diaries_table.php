@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('diaries', function (Blueprint $table) {
             $table->id();
             $table->date('date');
-            $table->integer('evaluation');
-            $table->string('good_thing',300);
-            $table->string('improvement',300);
+            $table->integer('evaluation')->nullable();
+            $table->string('good_thing',300)->nullable();
+            $table->string('improvement',300)->nullable();
             $table->string('feedback',300)->nullable();
             $table->softDeletes();
             $table->timestamps();
