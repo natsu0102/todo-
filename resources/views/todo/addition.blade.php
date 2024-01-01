@@ -11,7 +11,12 @@
             <div class="title">
                 <input type="text" name="task[name]" placeholder="タスク名"/>
                 <input type="text" name="task[target_time]" placeholder="目標時間"/>
-                <input type="text" name="task[importance_urgency]" placeholder="緊急重要（後で選択式にする）"/>
+                      　<select name="task[importance_urgency]">
+                            <option value="1">緊急！重要！</option>
+                            <option value="2">重要だけど緊急じゃない</option>
+                            <option value="3">緊急だけど重要じゃない</option>
+                            <option value="4">緊急でも重要でもない</option>
+                      　</select>
             </div>
             <div>
                 <select name="task[category_id]">

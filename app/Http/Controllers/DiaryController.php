@@ -26,6 +26,12 @@ class DiaryController extends Controller
             $task->diary_id = $diary_id;//diary_idに今日のdiary_idを指定
             $task->save();
         }
-        return redirect()->back();
+        return redirect('/today');
     }
+        public function index(Task $task)
+        {
+            $today = now();
+            $task = Task::where('diary_id', 2)->get();
+            return view('todo.diary',['tasks' => $task]);
+        }
 }
