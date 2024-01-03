@@ -17,11 +17,13 @@ class Task extends Model
         'name',
         'importance_urgency',
         'target_time',
+        'elapsed_time',
         'detail',
         'purpose',
         'good_future',
         'bad_future',
         'reward',
+        'image_url',
     ];
     public function category()
     {
