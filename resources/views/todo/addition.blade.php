@@ -11,6 +11,7 @@
             <div class="title">
                 <input type="text" name="task[name]" placeholder="タスク名"/>
                 <input type="text" name="task[target_time]" placeholder="目標時間"/>
+                <input type="text" name="task[elapsed_time]" placeholder="かかった時間"/>
                       　<select name="task[importance_urgency]">
                             <option value="1">緊急！重要！</option>
                             <option value="2">重要だけど緊急じゃない</option>

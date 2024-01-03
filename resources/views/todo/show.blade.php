@@ -12,7 +12,15 @@
         <h1 class="title">
             <span class='name'>{{$task->name}}</span>
             <span class='target_time'>{{$task->target_time}}</span>
-            <span class='importance_urgency'>{{$task->importance_urgency}}</span>
+            @if($task->importance_urgency === 1)
+                <span class='importance_urgency'>緊急!重要!</span>
+            @elseif($task->importance_urgency === 2)
+                <span class='importance_urgency'>重要</span>
+            @elseif($task->importance_urgency === 3)
+                <span class='importance_urgency'>緊急</span>
+            @elseif($task->importance_urgency === 4)
+                <span class='importance_urgency'>緊急でも重要でもない</span>
+            @endif
         </h1>
         <div class="category">
             <span class='category_id'>{{$task->category_id}}</span>
