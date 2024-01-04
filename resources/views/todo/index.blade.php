@@ -19,7 +19,7 @@ $count = 0
                 @foreach ($tasks as $task)
                 　　@if($task->elapsed_time === null)
                         <div class='task'>
-                            <input type="checkbox" name="tasks[]" value="{{ $task->id }}">
+                            <input type="checkbox" name="tasks[]" value="{{ $task->id }}" {{$task->diary_id === $today_diary_id ? 'checked' : ''}}>
                             {{--nameはチェック項目の名前。複数のタスクがあるから[]。valueで、taskテーブルのidをコントローラーに送る。--}}
                             <span class='name'>
                                 <a href="/todo/{{ $task->id }}">{{ $task->name }}</a>

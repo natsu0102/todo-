@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\DiaryController;
+use App\Http\Controllers\EventController;
 
 
 /*
@@ -39,6 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/todo/{task}', [TaskController::class,'delete']);//削除
     Route::post('/today/', [DiaryController::class, 'store']);//今日の分のタスクを保存
     Route::get('/today', [DiaryController::class, 'index']); //今日の分のタスクを表示
+    Route::get('/calendar', [EventController::class, 'show'])->name("show"); // カレンダー表示
 });
 
 
