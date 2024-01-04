@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Task;
 use App\Models\Category;
+use App\Models\Diary;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -12,7 +13,9 @@ class TaskController extends Controller
 {
     public function index(Task $task)
     {
-        return view('todo.index')->with(['tasks' => $task->get()]);
+        $today = now()->format('Y-m-d');
+        $today_diary_id = Diary::where('date', $today)->first()->id;//今日のdiary_idを特定
+        return view('todo.index')->with(['tasks' => $task->get(), 'today_diary_id' => $today_diary_id]);
     }
     public function addition(Category $category)
     {
