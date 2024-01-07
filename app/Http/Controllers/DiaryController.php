@@ -48,5 +48,6 @@ class DiaryController extends Controller
             $today_diary_id = Diary::where('date', $today)->first()->id;//今日のdiary_idを特定
             $task = Task::where('diary_id', $today_diary_id)->get();//今日のdiary_idが保存されているタスクを$task
             return view('todo.diary',['tasks' => $task]);
+            
         }
 }
