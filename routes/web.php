@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\DiaryController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\PastController;
 
 
 /*
@@ -41,6 +42,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/today/', [DiaryController::class, 'store']);//今日の分のタスクを保存
     Route::get('/today', [DiaryController::class, 'index']); //今日の分のタスクを表示
     Route::get('/calendar', [EventController::class, 'show'])->name("show"); // カレンダー表示
+    Route::post('/pasts', [PastController::class, 'store']);
+    Route::post('/calendar/get',  [EventController::class, 'get'])->name("get"); // DBに登録した予定を取得
 });
 
 
