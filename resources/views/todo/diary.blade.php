@@ -14,9 +14,11 @@
                 </div>
                 @endforeach
             </div>
-            <div class="col-start-2 col-end-3 row-start-1 row-end-2 bg-blue-100"></div>
-            <div></div>
-            <div></div>
+            <div class="col-start-2 col-end-3 row-start-1 row-end-2 bg-blue-100">
+                
+            </div>
+            <div class="col-start-1 col-end-2 row-start-2 row-end-3 bg-green-100"></div>
+            <div class="col-start-2 col-end-3 row-start-2 row-end-3 bg-red-100"></div>
             
         </div> 
         
