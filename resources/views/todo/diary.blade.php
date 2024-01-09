@@ -4,44 +4,54 @@
         <h2 class='date'>{{ date('Y-m-d') }}</h2>
         <a href='/'>タスク一覧</a>
         <div class='tasks grid grid-cols-2 grid-rows-2 w-[800px] h-[800px] bg-gray-300'>
-            <div class="flex flex-col col-start-1 col-end-2 row-start-1 row-end-2 bg-red-100">
-                @foreach ($tasks as $task)
-                <div>
-                <span class='name'>
-                    <a href="/todo/{{ $task->id }}">{{ $task->name }}</a>
-                </span>
-                <span class='target_time'>{{$task->target_time}}</span>
+            <div class="flex items-center justify-between">
+                <div class="flex flex-col col-start-1 col-end-2 row-start-1 row-end-2 bg-red-100">
+                    @foreach ($tasks1 as $task1)
+                    <div>
+                    <span class='name'>
+                        <a href="/todo/{{ $task1->id }}">{{ $task1->name }}</a>
+                    </span>
+                    <span class='target_time'>{{$task1->target_time}}</span>
+                    </div>
+                    @endforeach
                 </div>
-                @endforeach
+                ↑
+                <div class="col-start-2 col-end-3 row-start-1 row-end-2 bg-blue-100">
+                    @foreach ($tasks2 as $task2)
+                    <div>
+                    <span class='name'>
+                        <a href="/todo/{{ $task2->id }}">{{ $task2->name }}</a>
+                    </span>
+                    <span class='target_time'>{{$task2->target_time}}</span>
+                    </div>
+                    @endforeach
+                </div>
             </div>
-            <div class="col-start-2 col-end-3 row-start-1 row-end-2 bg-blue-100">
-                
+            <div>
+                <div class="col-start-1 col-end-2 row-start-2 row-end-3 bg-green-100">
+                    @foreach ($tasks3 as $task3)
+                    <div>
+                    <span class='name'>
+                        <a href="/todo/{{ $task3->id }}">{{ $task3->name }}</a>
+                    </span>
+                    <span class='target_time'>{{$task3->target_time}}</span>
+                    </div>
+                    @endforeach
+                </div>
+                <div class="col-start-2 col-end-3 row-start-2 row-end-3 bg-red-100">
+                    @foreach ($tasks4 as $task4)
+                    <div>
+                    <span class='name'>
+                        <a href="/todo/{{ $task4->id }}">{{ $task4->name }}</a>
+                    </span>
+                    <span class='target_time'>{{$task4->target_time}}</span>
+                    </div>
+                    @endforeach
+                </div>
             </div>
-            <div class="col-start-1 col-end-2 row-start-2 row-end-3 bg-green-100"></div>
-            <div class="col-start-2 col-end-3 row-start-2 row-end-3 bg-red-100"></div>
             
         </div> 
         
-        <div class='tasks'>
-                @foreach ($tasks as $task)
-                
-                    <div class='tasks'>
-                        <span class='name'>
-                            <a href="/todo/{{ $task->id }}">{{ $task->name }}</a>
-                        </span>
-                        <span class='target_time'>{{$task->target_time}}</span>
-                        @if($task->importance_urgency === 1)
-                            <span class='importance_urgency'>緊急!重要!</span>
-                        @elseif($task->importance_urgency === 2)
-                            <span class='importance_urgency'>重要</span>
-                        @elseif($task->importance_urgency === 3)
-                            <span class='importance_urgency'>緊急</span>
-                        @elseif($task->importance_urgency === 4)
-                            <span class='importance_urgency'>緊急でも重要でもない</span>
-                        @endif
-                    </div>
-                @endforeach
-        </div>
         <form action="/pasts" method="POST">
         @csrf
         <div class='diary'>
