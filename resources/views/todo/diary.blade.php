@@ -1,10 +1,35 @@
 <x-app-layout>
 
+    <style>
+       
+
+        .arrow-container {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* 画面いっぱいにするための高さ指定 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .arrow-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 40px solid #007bff; /* 矢印の色を指定 */
+        }
+    </style>
+
         <h1 class='text-4xl'>今日のタスク</h1>
         <h2 class='date'>{{ date('Y-m-d') }}</h2>
         <a href='/'>タスク一覧</a>
         <div class='tasks grid grid-cols-2 grid-rows-2 w-[800px] h-[800px] bg-gray-300'>
-            <div class="flex items-center justify-between">
                 <div class="flex flex-col col-start-1 col-end-2 row-start-1 row-end-2 bg-red-100">
                     @foreach ($tasks1 as $task1)
                     <div>
@@ -15,7 +40,6 @@
                     </div>
                     @endforeach
                 </div>
-                ↑
                 <div class="col-start-2 col-end-3 row-start-1 row-end-2 bg-blue-100">
                     @foreach ($tasks2 as $task2)
                     <div>

@@ -44,6 +44,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/calendar', [EventController::class, 'show'])->name("show"); // カレンダー表示
     Route::post('/pasts', [PastController::class, 'store']);
     Route::post('/calendar/get',  [EventController::class, 'get'])->name("get"); // DBに登録した予定を取得
+    Route::get('/diaries/{diary}', [DiaryController::class ,'show']);
 });
 
 
