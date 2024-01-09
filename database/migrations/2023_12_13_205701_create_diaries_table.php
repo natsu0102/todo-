@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('diaries', function (Blueprint $table) {
             $table->id();
             $table->date('date');
+            $table->string('target')->nullable();
             $table->integer('evaluation')->nullable();
             $table->string('good_thing',300)->nullable();
             $table->string('improvement',300)->nullable();

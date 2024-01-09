@@ -46,7 +46,10 @@ class DiaryController extends Controller
         {
             $today = now()->format('Y-m-d');
             $today_diary_id = Diary::where('date', $today)->first()->id;//今日のdiary_idを特定
-            $task = Task::where('diary_id', $today_diary_id)->where('importance_urgency', 1)->get();//今日のdiary_idが保存されているタスクを$task
-            return view('todo.diary',['tasks' => $task]);
+            $task1 = Task::where('diary_id', $today_diary_id)->where('importance_urgency', 1)->get();//今日のdiary_idが保存されているタスクを$task
+            $task2 = Task::where('diary_id', $today_diary_id)->where('importance_urgency', 2)->get();
+            $task3 = Task::where('diary_id', $today_diary_id)->where('importance_urgency', 3)->get();
+            $task4 = Task::where('diary_id', $today_diary_id)->where('importance_urgency', 4)->get();
+            return view('todo.diary',['tasks1' => $task1, 'tasks2' => $task2,'tasks3' => $task3,'tasks4' => $task4]);
         }
 }

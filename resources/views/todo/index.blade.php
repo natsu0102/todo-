@@ -13,22 +13,11 @@ $count = 0
         <h1 class='text-4xl'>タスク一覧</h1>
         <a href='/todo/addition'>追加</a>
         <a href='/today'>今日のタスク一覧</a>
-        <form action="/today/" method="post">
-            <div class='tasks grid grid-cols-2 grid-rows-2 w-full h-full'>
+        <div class='tasks'>
+            <form action="/today/" method="post">
+                @csrf
                 
-                    @csrf
-                    <div class="col-start-1 col-end-2 row-start-1 row-end-2">
-                        
-                    </div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                 
-                    <button type="submit" value="今日のタスク">今日のタスクとして保存</button>
-               
-            </div> 
-        </form>
-           @foreach ($tasks as $task)
+                @foreach ($tasks as $task)
                 　　@if($task->elapsed_time === null)
                         <div class='task'>
                             <input type="checkbox" name="tasks[]" value="{{ $task->id }}" {{$task->diary_id === $today_diary_id ? 'checked' : ''}}>
@@ -49,6 +38,9 @@ $count = 0
                         </div>
                     @endif
                 @endforeach
+                <button type="submit" value="今日のタスク">今日のタスクとして保存</button>
+            </form>
+        </div>
             <script>
                 function deletePost(id) {
                     'use strict'
