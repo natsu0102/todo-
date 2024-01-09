@@ -44,7 +44,14 @@ if (calendarEl !== null) {
                 });
         },
         eventClick: function(info) {
-            window.location='/today';
+    // イベントに関連付けられたデータを取得
+    var diaryId = info.event.extendedProps.diaryId;
+
+    // リダイレクト先URLを生成
+    var redirectUrl = '/diaries/' + diaryId;
+
+    // リダイレクト
+    window.location = redirectUrl;
         },
     });
     

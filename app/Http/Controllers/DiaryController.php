@@ -52,4 +52,9 @@ class DiaryController extends Controller
             $task4 = Task::where('diary_id', $today_diary_id)->where('importance_urgency', 4)->get();
             return view('todo.diary',['tasks1' => $task1, 'tasks2' => $task2,'tasks3' => $task3,'tasks4' => $task4]);
         }
+        public function show(Diary $diary)
+        {
+            return view('todo.pastshow')->with(['diary' => $diary]);
+         //'post'はbladeファイルで使う変数。中身は$postはid=1のPostインスタンス。
+        }
 }
