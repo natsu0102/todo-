@@ -1,30 +1,7 @@
 <x-app-layout>
-
-    <style>
-       
-
-        .arrow-container {
-            position: relative;
-            width: 100%;
-            height: 100vh; /* 画面いっぱいにするための高さ指定 */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .arrow-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: 20px solid transparent;
-            border-right: 20px solid transparent;
-            border-bottom: 40px solid #007bff; /* 矢印の色を指定 */
-        }
-    </style>
+   
+{{--<span class="dli-arrow-right"></span>--}}
+<div class='box'><img src="{{asset('/img/arrow_2.png')}}"></div>
 
         <h1 class='text-4xl'>今日のタスク</h1>
         <h2 class='date'>{{ date('Y-m-d') }}</h2>
