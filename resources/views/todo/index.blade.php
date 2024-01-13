@@ -12,11 +12,11 @@ $count = 0
     <body>
         <h1 class='text-4xl'>タスク一覧</h1>
         <a href='/todo/addition'>追加</a>
+        <a href='/todo/create'>カテゴリー作成</a>
         <a href='/today'>今日のタスク一覧</a>
         <div class='tasks'>
             <form action="/today/" method="post">
                 @csrf
-                
                 @foreach ($tasks as $task)
                 　　@if($task->elapsed_time === null)
                         <div class='task'>
@@ -41,6 +41,11 @@ $count = 0
                 <button type="submit" value="今日のタスク">今日のタスクとして保存</button>
             </form>
         </div>
+            <form action="/todo/{{ $task->id }}" id="form_{{ $task->id }}" method="post">
+                @csrf
+                @method('DELETE')
+                <button type="button" onclick="deletePost({{ $task->id }})">delete</button> 
+            </form>
             <script>
                 function deletePost(id) {
                     'use strict'

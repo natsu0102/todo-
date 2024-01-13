@@ -45,10 +45,10 @@ if (calendarEl !== null) {
         },
         eventClick: function(info) {
     // イベントに関連付けられたデータを取得
-    var diaryId = info.event.extendedProps.diaryId;
+    var diaryId = info.event.id;
 
     // リダイレクト先URLを生成
-    var redirectUrl = '/diaries/' + diaryId;
+    var redirectUrl = '/pastshow/' + diaryId;
 
     // リダイレクト
     window.location = redirectUrl;

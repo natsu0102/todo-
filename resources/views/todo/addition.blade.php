@@ -6,6 +6,7 @@
     </head>
     <body>
         <h1>タスクの追加</h1>
+        <a href='/todo/create'>カテゴリー作成</a>
         <form action="/todo" method="POST">
             @csrf
             <div class="title">
