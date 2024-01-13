@@ -6,6 +6,7 @@ use App\Http\Controllers\TaskController;
 use App\Http\Controllers\DiaryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\PastController;
+use App\Http\Controllers\CategoryController;
 
 
 /*
@@ -44,7 +45,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/calendar', [EventController::class, 'show'])->name("show"); // カレンダー表示
     Route::post('/pasts', [PastController::class, 'store']);
     Route::post('/calendar/get',  [EventController::class, 'get'])->name("get"); // DBに登録した予定を取得
-    Route::get('/diaries/{diary}', [DiaryController::class ,'show']);
+    Route::get('/pastshow/{diary}', [DiaryController::class ,'show']);//過去のタスクを表示
+    Route::delete('/todo/{task}', [TaskController::class,'delete']);//まとめて削除
+    Route::get('/todo/create', [CategoryController::class, 'create']);//カテゴリー作成
+    Route::post('/categories', [CategoryController::class, 'store']);
 });
 
 

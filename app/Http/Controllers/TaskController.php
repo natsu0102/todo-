@@ -43,16 +43,17 @@ class TaskController extends Controller
     {
         return view('todo.edit')->with(['task' => $task, 'categories' => $category->get()]);
     }
+    public function update(Request $request, Task $task)
+    {
+        $input_task = $request['task'];
+        $task->fill($input_task)->save();
+    
+        return redirect('/todo/' . $task->id);
+    }
     public function delete(Task $task)
     {
         $task->delete();
         return redirect('/');
     }
-    public function update(Request $request, Task $task)
-{
-    $input_task = $request['task'];
-    $task->fill($input_task)->save();
 
-    return redirect('/todo/' . $task->id);
-}
 }
