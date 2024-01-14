@@ -14,7 +14,7 @@
             @method('PUT')
             <div class="title">
                 <input type='text' name='task[name]' value="{{ $task->name }}">
-                <input type='text' name='task[target_time]' value="{{ $task->target_time }}">
+                <input type='text' name='task[target_time]' value="{{ $task->target_time }}分">
                 <input type="text" name="task[elapsed_time]" placeholder="かかった時間"/>
                       　<select name="task[importance_urgency]">
                             <option value="1">緊急！重要！</option>

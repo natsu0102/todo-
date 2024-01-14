@@ -42,7 +42,7 @@ class DiaryController extends Controller
         }
         return redirect('/today');
     }
-        public function index(Task $task)
+        public function index(Task $task, Diary $diary)
         {
             $today = now()->format('Y-m-d');
             $today_diary_id = Diary::where('date', $today)->first()->id;//今日のdiary_idを特定
@@ -50,7 +50,10 @@ class DiaryController extends Controller
             $task2 = Task::where('diary_id', $today_diary_id)->where('importance_urgency', 2)->get();
             $task3 = Task::where('diary_id', $today_diary_id)->where('importance_urgency', 3)->get();
             $task4 = Task::where('diary_id', $today_diary_id)->where('importance_urgency', 4)->get();
-            return view('todo.diary',['tasks1' => $task1, 'tasks2' => $task2,'tasks3' => $task3,'tasks4' => $task4]);
+            $diary = Diary::first(); 
+            // もし $diary が存在すれば target カラムの値を取得し、存在しなければ空の文字列を代入
+            $target = $diary ? $diary->target : '';
+            return view('todo.diary',['tasks1' => $task1, 'tasks2' => $task2,'tasks3' => $task3,'tasks4' => $task4, 'diary' => $diary]);
         }
         public function show(Diary $diary)
         {

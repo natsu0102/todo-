@@ -21,6 +21,8 @@ class TaskController extends Controller
         } else {
             $today_diary_id = null;
         }
+        
+    
         return view('todo.index')->with(['tasks' => $task->get(), 'today_diary_id' => $today_diary_id]);
     }
     public function addition(Category $category)
