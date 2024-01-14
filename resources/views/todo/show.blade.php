@@ -11,8 +11,8 @@
         <div class="edit"><a href="/todo/{{ $task->id }}/edit">編集</a></div>
         <h1 class="title">
             <span class='name'>{{$task->name}}</span>
-            <span class='target_time'>{{$task->target_time}}</span>
-            <span class='task[elapsed_time'>{{$task->elapsed_time}}</span>
+            <span class='target_time'>{{$task->target_time}}分</span>
+            <span class='task[elapsed_time'>{{$task->elapsed_time}}分</span>
             @if($task->importance_urgency === 1)
                 <span class='importance_urgency'>緊急!重要!</span>
             @elseif($task->importance_urgency === 2)

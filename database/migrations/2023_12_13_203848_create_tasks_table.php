@@ -20,8 +20,8 @@ return new class extends Migration
             $table->foreignId('diary_id')->nullable();
             $table->string('name',30);
             $table->integer('importance_urgency');
-            $table->time('target_time');
-            $table->time('elapsed_time')->nullable();
+            $table->integer('target_time');
+            $table->integer('elapsed_time')->nullable();
             $table->text('detail')->nullable();
             $table->text('purpose')->nullable();
             $table->text('good_future')->nullable();

@@ -36,7 +36,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/', [TaskController::class, 'index']); 
     Route::get('/todo/addition', [TaskController::class, 'addition']);
     Route::post('/todo', [TaskController::class, 'store']);
-    Route::get('/todo/{task}', [TaskController::class ,'show']);
+    Route::get('/todo/{task}', [TaskController::class ,'show'])->whereNumber('task');
+    Route::get('/todo/create', [CategoryController::class, 'create']);//カテゴリー作成
+   
     Route::get('/todo/{task}/edit', [TaskController::class, 'edit']);//編集画面の表示
     Route::put('/todo/{task}', [TaskController::class, 'update']);//編集実行
     Route::delete('/todo/{task}', [TaskController::class,'delete']);//削除
@@ -47,7 +49,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/calendar/get',  [EventController::class, 'get'])->name("get"); // DBに登録した予定を取得
     Route::get('/pastshow/{diary}', [DiaryController::class ,'show']);//過去のタスクを表示
     Route::delete('/todo/{task}', [TaskController::class,'delete']);//まとめて削除
-    Route::get('/todo/create', [CategoryController::class, 'create']);//カテゴリー作成
     Route::post('/categories', [CategoryController::class, 'store']);
 });
 

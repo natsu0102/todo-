@@ -14,18 +14,19 @@ $count = 0
         <a href='/todo/addition'>追加</a>
         <a href='/todo/create'>カテゴリー作成</a>
         <a href='/today'>今日のタスク一覧</a>
+        <a href='/calendar'>カレンダー</a>
         <div class='tasks'>
             <form action="/today/" method="post">
                 @csrf
                 @foreach ($tasks as $task)
                 　　@if($task->elapsed_time === null)
-                        <div class='task'>
+                        <div class='task' style="font-size: 22px;">
                             <input type="checkbox" name="tasks[]" value="{{ $task->id }}" {{$task->diary_id === $today_diary_id ? 'checked' : ''}}>
                             {{--nameはチェック項目の名前。複数のタスクがあるから[]。valueで、taskテーブルのidをコントローラーに送る。--}}
                             <span class='name'>
                                 <a href="/todo/{{ $task->id }}">{{ $task->name }}</a>
                             </span>
-                            <span class='target_time'>{{$task->target_time}}</span>
+                            <span class='target_time'>{{$task->target_time}}分</span>
                             @if($task->importance_urgency === 1)
                                 <span class='importance_urgency'>緊急!重要!</span>
                             @elseif($task->importance_urgency === 2)
