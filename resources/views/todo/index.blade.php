@@ -20,7 +20,8 @@ $count = 0
                 @csrf
                 @foreach ($tasks as $task)
                 　　@if($task->elapsed_time === null)
-                        <div class='task' style="font-size: 22px;">
+                        <div class='task'
+                        style="font-size: 22px;">
                             <input type="checkbox" name="tasks[]" value="{{ $task->id }}" {{$task->diary_id === $today_diary_id ? 'checked' : ''}}>
                             {{--nameはチェック項目の名前。複数のタスクがあるから[]。valueで、taskテーブルのidをコントローラーに送る。--}}
                             <span class='name'>
