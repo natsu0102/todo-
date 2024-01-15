@@ -15,8 +15,8 @@ class CategoryController extends Controller
     }
     public function store(Request $request, Category $category)
     {
-        $input = $request['category'];
+        $input = $request['categories'];
         $category->fill($input)->save();
-        return redirect('/' . $category->id);
+        return redirect('/');
     }
 }
